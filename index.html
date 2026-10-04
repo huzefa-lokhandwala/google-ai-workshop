@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google AI Workshop | Student-Led Experience with Gemini</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Google AI Workshop | Student-Led Experience with Gemini">
+  <meta name="description" content="A hands-on Google AI workshop where you can explore Gemini, experiment with AI, and turn ideas into something real. Conducted by Huzefa Lokhandwala, Google Student Ambassador.">
+  <meta name="keywords" content="Google AI Workshop, Google Gemini, Google Student Ambassador, Huzefa Lokhandwala, Student AI, Nano Banana, College Tech Workshop">
+  <meta name="author" content="Huzefa Lokhandwala">
+  
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Google AI Workshop • Don't Just Learn About AI. Use It.">
+  <meta property="og:description" content="A hands-on Google AI workshop where you can explore Gemini, experiment with AI, and turn ideas into something real. Conducted by Huzefa Lokhandwala (Google Student Ambassador).">
+  <meta property="og:image" content="assets/images/hero-light.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Google AI Workshop • Don't Just Learn About AI. Use It.">
+  <meta property="twitter:description" content="A hands-on Google AI workshop where you can explore Gemini, experiment with AI, and turn ideas into something real. Conducted by Huzefa Lokhandwala (Google Student Ambassador).">
+  <meta property="twitter:image" content="assets/images/hero-light.jpg">
+
+  <!-- Favicon: Google 4-Color Sparkle SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%234285F4' d='M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z'/></svg>">
+
+  <!-- Typography: Google Fonts (Outfit for clean modern display + Plus Jakarta Sans for UI + JetBrains Mono for badges) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="light-theme google-theme">
+  <!-- ===================================================
+       GOOGLE-INSPIRED OPENING EXPERIENCE OVERLAY
+       =================================================== -->
+  <div id="opening-intro-overlay" class="intro-overlay" role="dialog" aria-modal="true" aria-label="Google AI Workshop opening introduction">
+    <div class="intro-backdrop" aria-hidden="true">
+      <div class="intro-glow-blob intro-blob-blue"></div>
+      <div class="intro-glow-blob intro-blob-red"></div>
+      <div class="intro-glow-blob intro-blob-yellow"></div>
+      <div class="intro-glow-blob intro-blob-green"></div>
+    </div>
+
+    <!-- Top Action Controls -->
+    <div class="intro-controls-bar">
+      <button class="intro-btn intro-sound-btn" id="intro-sound-toggle" aria-label="Toggle intro sound" title="Toggle audio">
+        <span class="intro-btn-icon" id="intro-sound-icon">🔇</span>
+        <span class="intro-btn-text" id="intro-sound-label">Sound Off</span>
+      </button>
+      <button class="intro-btn intro-skip-btn" id="intro-skip-btn" aria-label="Skip introduction animation">
+        <span>Skip Intro</span>
+        <span class="intro-skip-arrow">✕</span>
+      </button>
+    </div>
+
+    <!-- Main Dynamic Animated Stage -->
+    <div class="intro-stage">
+      <!-- Stage 1: Google 4-Color Floating Kinetic Dots -->
+      <div class="intro-dots-group" id="intro-dots-group" aria-hidden="true">
+        <span class="intro-dot dot-b"></span>
+        <span class="intro-dot dot-r"></span>
+        <span class="intro-dot dot-y"></span>
+        <span class="intro-dot dot-g"></span>
+      </div>
+
+      <!-- Stage 2: Genuine Workshop Visual Showcase Cards -->
+      <div class="intro-media-reel" id="intro-media-reel">
+        <div class="intro-reel-card card-presenter">
+          <img src="assets/images/sessions/01_huzefa_presenting_students_gemini.jpg" alt="Live workshop walkthrough" class="intro-reel-img" loading="eager">
+          <span class="intro-reel-badge">LIVE DEMO</span>
+        </div>
+        <div class="intro-reel-card card-students">
+          <img src="assets/images/sessions/07_students_workstations_video_still.jpg" alt="Students engaged at workstations" class="intro-reel-img" loading="eager">
+          <span class="intro-reel-badge">STUDENT LAB</span>
+        </div>
+        <div class="intro-reel-card card-audience">
+          <img src="assets/images/sessions/02_wide_workshop_room_audience.jpeg" alt="Full lab participation" class="intro-reel-img" loading="eager">
+          <span class="intro-reel-badge">COLLABORATION</span>
+        </div>
+      </div>
+
+      <!-- Stage 3: Title & Event Branding Reveal -->
+      <div class="intro-branding-reveal" id="intro-branding-reveal">
+        <div class="intro-brand-pill">
+          <img src="assets/images/branding/google-logo.png" alt="Google" class="intro-google-logo" width="68" height="22">
+          <span class="intro-pill-sep">|</span>
+          <span class="intro-pill-role">Interactive AI Workshop</span>
+        </div>
+        <h2 class="intro-title">
+          GOOGLE AI WORKSHOP
+        </h2>
+        <p class="intro-tagline">
+          DON’T JUST LEARN ABOUT AI. <span class="intro-accent-text">USE IT.</span>
+        </p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="intro-progress-track" aria-hidden="true">
+        <div class="intro-progress-bar" id="intro-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subtle Soft Google Color Blobs (Soft Daylight Ambient Lighting) -->
+  <div class="google-blob blob-blue" aria-hidden="true"></div>
+  <div class="google-blob blob-yellow" aria-hidden="true"></div>
+  <div class="google-blob blob-green" aria-hidden="true"></div>
+  <div class="google-blob blob-red" aria-hidden="true"></div>
+
+  <!-- Sticky Clean Google Event Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-identity" aria-label="Google AI Workshop Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/images/branding/google-logo.png" alt="Google" class="brand-google-logo" width="80" height="26">
+        </div>
+        <div class="brand-divider" aria-hidden="true"></div>
+        <div class="brand-text-group">
+          <div class="brand-title-row">
+            <span class="brand-main-title">GOOGLE AI WORKSHOP</span>
+            <img src="assets/images/branding/gemini-sparkle.png" alt="" class="brand-sparkle-accent" width="13" height="14" aria-hidden="true">
+          </div>
+          <span class="brand-sub-badge">Hands-On Campus Session</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Integrated with Surveys & Benefits) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#register" class="nav-link">Register</a></li>
+          <li><a href="#benefits" class="nav-link">Benefits</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#challenge" class="nav-link">Challenge</a></li>
+          <li><a href="#sessions" class="nav-link">Sessions</a></li>
+          <li><a href="#host" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="#register" class="btn btn-google-blue" id="header-register-btn">
+          <span>Register / Survey</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-links">
+          <li><a href="#register" class="mobile-nav-link">Register</a></li>
+          <li><a href="#benefits" class="mobile-nav-link">Benefits</a></li>
+          <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+          <li><a href="#challenge" class="mobile-nav-link">Challenge</a></li>
+          <li><a href="#sessions" class="mobile-nav-link">Sessions</a></li>
+          <li><a href="#host" class="mobile-nav-link">About</a></li>
+        </ul>
+        <div class="mobile-drawer-cta">
+          <a href="#register" class="btn btn-google-blue btn-full">
+            <span>Register / Survey</span>
+          </a>
+          <button class="btn btn-outline-google btn-full open-remind-modal">
+            <span>🔔 Remind Me</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===================================================
+         SECTION 1: HERO (REFINED GOOGLE EVENT MICROSITE)
+         =================================================== -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-container">
+        <!-- Text Column -->
+        <div class="hero-content">
+          <!-- Refined Google Event & Ambassador Identity Lockup -->
+          <div class="hero-brand-lockup">
+            <div class="hero-event-lead-line">
+              <span class="hero-what-label">Google AI Workshop</span>
+              <span class="hero-lead-sep">•</span>
+              <span class="hero-who-label">Facilitated by Huzefa Lokhandwala (Google Student Ambassador)</span>
+            </div>
+          </div>
+
+          <!-- Main Approved Headline -->
+          <h1 class="hero-title">
+            DON'T JUST LEARN<br>
+            ABOUT AI.<br>
+            <span class="google-accent-text">USE IT.</span>
+          </h1>
+
+          <!-- Supporting Copy (Clearly communicates WHAT, WHO, WHY in 3-5 seconds) -->
+          <p class="hero-subtitle">
+            A hands-on Google AI workshop where students actually use AI instead of only hearing about it — explore Gemini, experiment with live prompts, and turn ideas into something real.
+          </p>
+
+          <!-- Clean Event Metadata Row (SVG Icons, No Emojis, No Clutter) -->
+          <div class="hero-metadata-row" id="hero-logistics">
+            <div class="metadata-chip">
+              <svg class="meta-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <div class="chip-details">
+                <span class="chip-label">DATE</span>
+                <span class="chip-val" id="hero-chip-date">[TO BE ANNOUNCED]</span>
+              </div>
+            </div>
+
+            <div class="metadata-chip">
+              <svg class="meta-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div class="chip-details">
+                <span class="chip-label">TIME</span>
+                <span class="chip-val" id="hero-chip-time">[TO BE ANNOUNCED]</span>
+              </div>
+            </div>
+
+            <div class="metadata-chip">
+              <svg class="meta-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div class="chip-details">
+                <span class="chip-label">VENUE</span>
+                <span class="chip-val" id="hero-chip-venue">[TO BE ANNOUNCED]</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs (Registration Visually Prioritized) -->
+          <div class="hero-cta-group">
+            <a href="#register" class="btn btn-google-blue btn-lg" id="hero-primary-cta">
+              <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <polyline points="16 11 18 13 22 9"></polyline>
+              </svg>
+              <span>Register / Survey</span>
+            </a>
+            <button class="btn btn-outline-google btn-lg open-remind-modal" id="hero-secondary-cta">
+              <span class="btn-icon">🔔</span>
+              <span>Remind Me</span>
+            </button>
+          </div>
+
+          <!-- Supporting Text -->
+          <div class="experience-priority-note">
+            <span class="priority-bullet">•</span>
+            <span>Offline experience recommended • Online option available</span>
+          </div>
+        </div>
+
+        <!-- Hero Visual Column -->
+        <div class="hero-visual-wrapper">
+          <div class="hero-image-card">
+            <img src="assets/images/hero-light.jpg" alt="Google AI Workshop keynote visual presentation" class="hero-main-img" width="1280" height="720" loading="eager">
+            
+            <div class="hero-tag-overlay">
+              <div class="tag-row">
+                <img src="assets/images/branding/gemini-sparkle.png" alt="" class="tag-sparkle" width="16" height="17" aria-hidden="true">
+                <span class="tag-title">Student AI Workshop</span>
+              </div>
+              <span class="tag-sub">Hands-on Gemini Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 2: SURVEYS & REGISTRATION (PROMINENT AT START)
+         =================================================== -->
+    <section class="section registration-section" id="register">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker kicker-blue">01 • REGISTRATION &amp; SURVEYS</span>
+          <h2 class="section-title">
+            Surveys &amp; <span class="highlight-blue">Registration</span>
+          </h2>
+          <p class="section-subtitle">
+            Complete the pre-workshop survey to reserve your seat and help tailor the hands-on session to what you want to learn.
+          </p>
+        </div>
+
+        <!-- 1. HIGH-CONTRAST SAME-EMAIL REQUIREMENT CALLOUT -->
+        <div class="same-email-reminder-banner" role="alert" aria-label="Important Google Meet Email Requirement">
+          <div class="reminder-banner-icon-col">
+            <div class="email-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="reminder-banner-content">
+            <div class="reminder-pill-badge">
+              <span class="badge-dot-blue"></span>
+              <span>REQUIRED FOR CERTIFICATE VERIFICATION</span>
+            </div>
+            <h3 class="same-email-heading">
+              <span class="same-email-prefix">Important:</span> Use the same email address in both forms that you use to join the <span class="meet-highlight"><svg class="meet-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l5-3v10l-5-3"></path><rect x="2" y="6" width="13" height="12" rx="2"></rect></svg>Google Meet</span>.
+            </h3>
+            <p class="same-email-desc">
+              Enter accurate information so the coordinator can verify certificate eligibility. If anything is unclear, contact the coordinator.
+            </p>
+            <span class="same-email-subnote">*Note: Certificate eligibility must be verified through session participation; submitting a form alone does not guarantee a certificate.</span>
+          </div>
+        </div>
+
+        <!-- 2. ORGANIZER REFERENCE DETAILS (ABOVE SURVEY FORM CARDS) -->
+        <div class="organizer-reference-card" id="organizer-reference-box">
+          <div class="org-ref-header">
+            <div class="org-ref-title-group">
+              <div class="org-ref-badge-row">
+                <span class="org-tag">FORM REFERENCE DETAILS</span>
+                <span class="org-badge-needed">COORDINATOR INFO</span>
+              </div>
+              <h3 class="org-ref-heading">Organizer Information for Surveys</h3>
+              <p class="org-ref-desc">
+                Reference details students may need when filling out either form:
+              </p>
+            </div>
+            <div class="org-ref-actions">
+              <button type="button" class="btn-copy-all" id="btn-copy-all-org" aria-label="Copy all organizer reference details to clipboard">
+                <svg class="copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span class="copy-all-text">Copy All Details</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="org-ref-rows-wrap">
+            <!-- Row 1: Name -->
+            <div class="org-ref-row">
+              <div class="org-ref-label-side">
+                <span class="org-ref-label">Organizer Name:</span>
+              </div>
+              <div class="org-ref-val-side">
+                <span class="org-ref-value" id="org-name-val">Huzefa Lokhandwala</span>
+              </div>
+              <div class="org-ref-btn-side">
+                <button type="button" class="btn-copy-chip" data-copy-target="org-name-val" data-copy-label="Organizer name" aria-label="Copy organizer name">
+                  <svg class="copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-chip-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Row 2: GID -->
+            <div class="org-ref-row">
+              <div class="org-ref-label-side">
+                <span class="org-ref-label">Organizer GID:</span>
+                <span class="org-gid-tag">Form Field</span>
+              </div>
+              <div class="org-ref-val-side">
+                <span class="org-ref-value org-gid-value" id="org-gid-val">9427</span>
+              </div>
+              <div class="org-ref-btn-side">
+                <button type="button" class="btn-copy-chip" data-copy-target="org-gid-val" data-copy-label="Organizer GID" aria-label="Copy organizer GID">
+                  <svg class="copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-chip-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Row 3: Email -->
+            <div class="org-ref-row">
+              <div class="org-ref-label-side">
+                <span class="org-ref-label">Organizer Email:</span>
+              </div>
+              <div class="org-ref-val-side">
+                <a href="mailto:huzefalokhand55@gmail.com" class="org-ref-value org-email-value" id="org-email-val">huzefalokhand55@gmail.com</a>
+              </div>
+              <div class="org-ref-btn-side">
+                <button type="button" class="btn-copy-chip" data-copy-target="org-email-val" data-copy-label="Organizer email" aria-label="Copy organizer email">
+                  <svg class="copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-chip-text">Copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. THE TWO SURVEY FORM CARDS -->
+        <div class="registration-cards-grid">
+          <!-- Primary Action Card: Pre-workshop Survey / Register -->
+          <article class="reg-card reg-primary-card">
+            <div class="reg-card-badge">
+              <span class="reg-step-pill">PRIMARY ACTION • REQUIRED TO REGISTER</span>
+            </div>
+            
+            <div class="reg-card-header">
+              <div class="reg-icon-circle icon-blue">
+                <svg class="reg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <polyline points="16 11 18 13 22 9"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="reg-card-title">Pre-Workshop Survey &amp; Registration</h3>
+                <span class="reg-time-estimate">Takes ~2–3 minutes • Required for seat reservation</span>
+              </div>
+            </div>
+
+            <p class="reg-card-desc">
+              Reserve your seat by completing this quick pre-workshop survey. Your input helps us customize the prompts, live demonstrations, and project activities for the audience.
+            </p>
+
+            <ul class="reg-benefits-list">
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Reserve your seat</strong> for the in-person hands-on workshop session</span>
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Share your AI interests</strong> and current experience level</span>
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Request topics</strong> or Gemini tools you want demonstrated live</span>
+              </li>
+            </ul>
+
+            <div class="reg-action-wrap">
+              <a href="https://producttrialsurvey.geministudentambassador.com/" target="_blank" rel="noopener noreferrer" class="btn btn-google-blue btn-lg btn-full" id="pre-survey-btn">
+                <span>Complete Pre-Workshop Survey ↗</span>
+              </a>
+              <span class="reg-action-note">Opens official Google product trial survey form. Completing this external form registers your seat.</span>
+            </div>
+          </article>
+
+          <!-- Secondary Action Card: Post-workshop Feedback -->
+          <article class="reg-card reg-secondary-card">
+            <div class="reg-card-badge">
+              <span class="reg-step-pill pill-secondary">POST-SESSION • ATTENDEE FEEDBACK</span>
+            </div>
+
+            <div class="reg-card-header">
+              <div class="reg-icon-circle icon-green">
+                <svg class="reg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="reg-card-title">Post-Workshop Feedback Form</h3>
+                <span class="reg-time-estimate">For attendees to complete after attending</span>
+              </div>
+            </div>
+
+            <p class="reg-card-desc">
+              Attended the workshop? Share your genuine feedback, what you built with Gemini, and help us improve upcoming student sessions.
+            </p>
+
+            <ul class="reg-benefits-list">
+              <li>
+                <svg class="check-icon icon-check-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Rate hands-on activities</strong>, prompt demos, and pacing</span>
+              </li>
+              <li>
+                <svg class="check-icon icon-check-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Submit your feedback</strong> on workshop takeaways and tools</span>
+              </li>
+              <li>
+                <svg class="check-icon icon-check-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Confirm attendance</strong> for workshop certificate eligibility</span>
+              </li>
+            </ul>
+
+            <div class="reg-action-wrap">
+              <a href="https://producttrialfeedback.geministudentambassador.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-google btn-lg btn-full" id="post-feedback-btn">
+                <span>Submit Session Feedback ↗</span>
+              </a>
+              <span class="reg-action-note">Opens official Google product trial feedback form in a new tab. Complete after attending the session to help verify certificate eligibility.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 3: ATTENDEE BENEFITS ("WHAT YOU'LL GET")
+         =================================================== -->
+    <section class="section benefits-section" id="benefits">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker kicker-green">02 • ATTENDEE BENEFITS</span>
+          <h2 class="section-title">
+            What You'll <span class="highlight-green">Get</span>
+          </h2>
+          <p class="section-subtitle">
+            Tangible takeaways, verified recognition, and exciting opportunities for active workshop participants.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <!-- Benefit 1: Google-Verified Certificate -->
+          <article class="benefit-card">
+            <div class="benefit-badge-row">
+              <span class="benefit-badge badge-blue">OFFICIAL RECOGNITION</span>
+              <span class="benefit-tag">FOR QUALIFIED ATTENDEES</span>
+            </div>
+
+            <!-- Illustrative Visual Slot -->
+            <div class="benefit-visual-slot">
+              <div class="illustrative-cert-preview">
+                <div class="cert-mockup-inner">
+                  <div class="cert-seal-badge">
+                    <svg class="cert-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="8" r="6"></circle>
+                      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                    </svg>
+                  </div>
+                  <div class="cert-lines">
+                    <div class="cert-line-title">CERTIFICATE OF PARTICIPATION</div>
+                    <div class="cert-line-sub">Google AI Workshop • Gemini Hands-On</div>
+                    <div class="cert-line-accent"></div>
+                  </div>
+                </div>
+                <span class="illustrative-disclaimer">[Illustrative Preview • Official Certificate Issued After Attendance &amp; Feedback]</span>
+              </div>
+            </div>
+
+            <div class="benefit-content">
+              <h3 class="benefit-title">Google-Verified Certificate</h3>
+              <p class="benefit-desc">
+                Receive an official, Google-verified certificate recognizing your hands-on participation and completion of the Google AI Workshop. Showcase verified practical skills with Gemini on LinkedIn, your resume, or academic portfolios.
+              </p>
+
+              <div class="benefit-terms-box">
+                <svg class="terms-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Awarded to participants who attend the full workshop session and submit the post-workshop feedback form.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: Google Pixel Phone Benefit -->
+          <article class="benefit-card">
+            <div class="benefit-badge-row">
+              <span class="benefit-badge badge-yellow">SPECIAL OPPORTUNITY</span>
+              <span class="benefit-tag">AWARD / CHALLENGE REWARD</span>
+            </div>
+
+            <!-- Product Visual Slot -->
+            <div class="benefit-visual-slot">
+              <div class="illustrative-pixel-preview">
+                <div class="pixel-img-frame">
+                  <img src="assets/images/google-pixel.png" alt="Google Pixel smartphone award opportunity" class="pixel-benefit-img" width="397" height="476" loading="lazy">
+                </div>
+                <span class="illustrative-disclaimer">[Program Award Opportunity • Terms &amp; Eligibility Announced at Workshop]</span>
+              </div>
+            </div>
+
+            <div class="benefit-content">
+              <h3 class="benefit-title">Google Pixel Phone Benefit</h3>
+              <p class="benefit-desc">
+                Stand a chance to win or qualify for an exclusive Google Pixel phone benefit through your participation in the workshop hands-on challenge and build activities.
+              </p>
+
+              <div class="benefit-terms-box terms-conditional">
+                <svg class="terms-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span><strong>Conditional Award:</strong> The Google Pixel benefit is an event award/prize opportunity tied to workshop participation or challenge performance. It is not guaranteed to all attendees. Specific eligibility rules and criteria will be announced during the session.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 3: YOUR WORKSHOP EXPERIENCE (COMBINED)
+         =================================================== -->
+    <section class="section workshop-experience-section" id="experience">
+      <div class="container">
+        <!-- Main Section Header -->
+        <div class="section-header text-center">
+          <span class="section-kicker kicker-blue">03 • WORKSHOP EXPERIENCE</span>
+          <h2 class="section-title">
+            Your Workshop <span class="highlight-blue">Experience</span>
+          </h2>
+          <p class="section-subtitle">
+            Why this session is built differently, what you’ll actually do at your workstation, and the tangible skills and project assets you’ll take home.
+          </p>
+        </div>
+
+        <div class="exp-blocks-stack">
+          <!-- Sub-block 1: Why the Workshop is Useful -->
+          <div class="exp-block">
+            <div class="exp-block-header text-center">
+              <span class="exp-block-kicker kicker-blue">PART 1 • THE APPROACH</span>
+              <h3 class="exp-block-title">Why This Workshop is Useful</h3>
+              <p class="exp-block-desc">
+                Most AI sessions are passive slide presentations. This workshop is structured around hands-on experimentation, live trials, and direct student relevance.
+              </p>
+            </div>
+
+            <div class="exp-utility-grid">
+              <!-- Card 1: Active Trial -->
+              <article class="exp-card card-blue-top">
+                <span class="exp-card-badge">01 • HANDS-ON LEARNING</span>
+                <div class="exp-card-icon-pill icon-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                </div>
+                <h4 class="exp-card-title">Active trial over passive lectures</h4>
+                <p class="exp-card-desc">
+                  Skip theoretical monologues. You’ll run real prompts directly at your workstation, test model behavior, and troubleshoot responses live.
+                </p>
+              </article>
+
+              <!-- Card 2: Student Reality -->
+              <article class="exp-card card-yellow-top">
+                <span class="exp-card-badge">02 • GENUINE STUDENT VALUE</span>
+                <div class="exp-card-icon-pill icon-yellow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                  </svg>
+                </div>
+                <h4 class="exp-card-title">Grounded in daily student reality</h4>
+                <p class="exp-card-desc">
+                  Focus on what genuinely accelerates college work: structuring research, breaking down complex topics, debugging errors, and project prep.
+                </p>
+              </article>
+
+              <!-- Card 3: Cross-Discipline Collaboration -->
+              <article class="exp-card card-green-top">
+                <span class="exp-card-badge">03 • CROSS-DISCIPLINE BUILD</span>
+                <div class="exp-card-icon-pill icon-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h4 class="exp-card-title">Collaborate across departments</h4>
+                <p class="exp-card-desc">
+                  Connect with students across different branches, take part in collaborative exercises, and build interdisciplinary perspectives.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Sub-block 2: What They Will Do During the Session -->
+          <div class="exp-block">
+            <div class="exp-block-header text-center">
+              <span class="exp-block-kicker kicker-purple">PART 2 • THE 4-STAGE SESSION JOURNEY</span>
+              <h3 class="exp-block-title">What You’ll Do During the Session</h3>
+              <p class="exp-block-desc">
+                A clear, fast-paced progression from your first test prompt to pitching a completed concept.
+              </p>
+            </div>
+
+            <div class="exp-journey-grid">
+              <!-- Stage 1 -->
+              <div class="journey-card">
+                <div class="journey-top-row">
+                  <div class="journey-step-num step-blue">01</div>
+                  <span class="journey-step-tag">EXPLORATION</span>
+                </div>
+                <h4 class="journey-title">Discover &amp; Demystify</h4>
+                <p class="journey-desc">Get an honest, hype-free orientation to Google Gemini capabilities, model reasoning, and prompt logic.</p>
+              </div>
+
+              <!-- Stage 2 -->
+              <div class="journey-card">
+                <div class="journey-top-row">
+                  <div class="journey-step-num step-red">02</div>
+                  <span class="journey-step-tag">HANDS-ON TRIAL</span>
+                </div>
+                <h4 class="journey-title">Experiment Live</h4>
+                <p class="journey-desc">Test structured prompt frameworks at your workstation with real-time facilitator and peer feedback.</p>
+              </div>
+
+              <!-- Stage 3 -->
+              <div class="journey-card">
+                <div class="journey-top-row">
+                  <div class="journey-step-num step-yellow">03</div>
+                  <span class="journey-step-tag">CREATIVE BUILD</span>
+                </div>
+                <h4 class="journey-title">Build a Concept</h4>
+                <p class="journey-desc">Pair Gemini prompt reasoning with creative visual tools to develop an original concept deck and mockups.</p>
+              </div>
+
+              <!-- Stage 4 -->
+              <div class="journey-card">
+                <div class="journey-top-row">
+                  <div class="journey-step-num step-green">04</div>
+                  <span class="journey-step-tag">SHOWCASE</span>
+                </div>
+                <h4 class="journey-title">Pitch &amp; Celebrate</h4>
+                <p class="journey-desc">Present your creation in an energetic 60-second lightning round and see what other teams built.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-block 3: What Skills or Outcomes They Can Take Away -->
+          <div class="exp-block">
+            <div class="exp-block-header text-center">
+              <span class="exp-block-kicker kicker-green">PART 3 • OUTCOMES &amp; SKILLS</span>
+              <h3 class="exp-block-title">What You Can Take Away</h3>
+              <p class="exp-block-desc">
+                Concrete capabilities, reusable templates, and verified credentials you keep long after the session concludes.
+              </p>
+            </div>
+
+            <div class="exp-takeaways-grid">
+              <!-- Takeaway 1 -->
+              <div class="takeaway-card">
+                <div class="takeaway-icon-pill icon-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="9" y1="18" x2="15" y2="18"></line>
+                    <line x1="10" y1="22" x2="14" y2="22"></line>
+                    <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
+                  </svg>
+                </div>
+                <div class="takeaway-body">
+                  <h4 class="takeaway-title">Reusable Prompt Frameworks</h4>
+                  <p class="takeaway-desc">
+                    Take home battle-tested prompt templates engineered for academic research, assignment drafting, complex synthesis, and exam prep.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Takeaway 2 -->
+              <div class="takeaway-card">
+                <div class="takeaway-icon-pill icon-purple">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"></path>
+                  </svg>
+                </div>
+                <div class="takeaway-body">
+                  <h4 class="takeaway-title">Multimodal Visual Creation</h4>
+                  <p class="takeaway-desc">
+                    Experience pairing prompt reasoning with visual generation to produce moodboards, concept assets, and presentation slides rapidly.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Takeaway 3 -->
+              <div class="takeaway-card">
+                <div class="takeaway-icon-pill icon-yellow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                  </svg>
+                </div>
+                <div class="takeaway-body">
+                  <h4 class="takeaway-title">A Complete Project Prototype</h4>
+                  <p class="takeaway-desc">
+                    Walk away with a tangible concept deck and visual asset package you built yourself during the session—ready for your portfolio.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Takeaway 4 -->
+              <div class="takeaway-card">
+                <div class="takeaway-icon-pill icon-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <div class="takeaway-body">
+                  <h4 class="takeaway-title">Verified Certificate &amp; Award Eligibility</h4>
+                  <p class="takeaway-desc">
+                    Confirm your attendance for official certificate recognition, and qualify for conditional workshop awards and prizes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 4: THE PRACTICAL CHALLENGE (GSA ACTIVITY)
+         =================================================== -->
+    <section class="section challenge-section" id="challenge">
+      <div class="container">
+        <div class="challenge-panel">
+          <div class="challenge-header text-center">
+            <span class="section-kicker kicker-blue">04 • THE CHALLENGE</span>
+            <h2 class="section-title">
+              Then, We Put It Into <span class="highlight-blue">Practice.</span>
+            </h2>
+            <p class="section-subtitle">
+              Take an idea, build a brand concept with Gemini, visualize it with Nano Banana, and pitch your creation.
+            </p>
+          </div>
+
+          <!-- Flow: IDEA → GEMINI → VISUALIZE → PITCH -->
+          <div class="flow-pipeline">
+            <div class="flow-pill">
+              <span class="flow-step">STEP 1</span>
+              <strong class="flow-name">IDEA</strong>
+              <span class="flow-sub">Pick a campus theme</span>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-pill flow-pill-gemini">
+              <span class="flow-step">STEP 2</span>
+              <strong class="flow-name">GEMINI</strong>
+              <span class="flow-sub">Concept & pitch copy</span>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-pill flow-pill-visual">
+              <span class="flow-step">STEP 3</span>
+              <strong class="flow-name">VISUALIZE</strong>
+              <span class="flow-sub">Nano Banana rendering</span>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-pill">
+              <span class="flow-step">STEP 4</span>
+              <strong class="flow-name">PITCH</strong>
+              <span class="flow-sub">60-sec room showcase</span>
+            </div>
+          </div>
+
+          <!-- Visual Showcase of Fest Stall Concept -->
+          <div class="challenge-mockup-frame">
+            <img src="assets/images/challenge-visual.jpg" alt="Student fest stall brand concept created using Gemini and Nano Banana" class="mockup-img" width="1280" height="720" loading="lazy">
+            <div class="mockup-caption-bar">
+              <div class="mockup-caption-item">
+                <span class="cap-label">PRACTICAL ACTIVITY</span>
+                <span class="cap-val">Build Your Fest Stall Challenge</span>
+              </div>
+              <div class="mockup-caption-item">
+                <span class="cap-label">TOOLS USED</span>
+                <span class="cap-val">Google Gemini + Nano Banana</span>
+              </div>
+              <div class="mockup-caption-item">
+                <span class="cap-label">OUTCOME</span>
+                <span class="cap-val">Brand Concept, Visual Prototype & Pitch</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="challenge-disclaimer text-center">
+            *This activity takes place inside the broader Google AI Workshop, providing everyone with a tangible creative project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 5: REAL SESSION EXPERIENCE & GALLERY
+         =================================================== -->
+    <section class="section sessions-section" id="sessions">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker kicker-blue">05 • REAL SESSION EXPERIENCE</span>
+          <h2 class="section-title">
+            This Is What a Hands-On <span class="highlight-blue">AI Session Looks Like.</span>
+          </h2>
+          <p class="section-subtitle">
+            This is what the experience actually looks like when students experiment and build together. Real curiosity, real builds, and collaborative energy.
+          </p>
+        </div>
+
+        <!-- Balanced Responsive Workshop Gallery (4 Photos) -->
+        <div class="sessions-gallery-grid">
+          <!-- Photo 1: Interactive Walkthrough -->
+          <div class="gallery-card">
+            <div class="gallery-frame">
+              <img src="assets/images/sessions/01_huzefa_presenting_students_gemini.jpg" alt="Huzefa Lokhandwala facilitating a hands-on Google Gemini prompt walkthrough with students in a live workshop" class="gallery-img" width="800" height="500" loading="lazy">
+              <div class="media-tag-badge">
+                <span>INTERACTIVE WALKTHROUGH</span>
+              </div>
+            </div>
+            <div class="gallery-card-caption">
+              <h4>Hands-On Prompt Walkthrough</h4>
+              <p>Huzefa facilitating the Gemini workflow with students testing prompts directly at their workstations.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2: Full Lab Participation -->
+          <div class="gallery-card">
+            <div class="gallery-frame">
+              <img src="assets/images/sessions/02_wide_workshop_room_audience.jpeg" alt="Wide workshop perspective of students engaged at computer workstations in the lab" class="gallery-img" width="800" height="500" loading="lazy">
+              <div class="media-tag-badge">
+                <span>WORKSHOP ATMOSPHERE</span>
+              </div>
+            </div>
+            <div class="gallery-card-caption">
+              <h4>Full Lab Participation</h4>
+              <p>Students across the computer lab actively participating in the practical AI exercises.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3: Genuine Student Collaboration -->
+          <div class="gallery-card">
+            <div class="gallery-frame">
+              <img src="assets/images/sessions/07_students_workstations_video_still.jpg" alt="Students collaborating and working together at computer monitors in the workshop lab" class="gallery-img" width="800" height="500" loading="lazy">
+              <div class="media-tag-badge">
+                <span>STUDENT COLLABORATION</span>
+              </div>
+            </div>
+            <div class="gallery-card-caption">
+              <h4>Working Through Live Prompts</h4>
+              <p>Students collaborating at workstation computers to experiment with live prompts and visual concepts.</p>
+            </div>
+          </div>
+
+          <!-- Photo 4: Live Gemini Projection -->
+          <div class="gallery-card">
+            <div class="gallery-frame">
+              <img src="assets/images/sessions/03_huzefa_gemini_projection.jpeg" alt="Live demonstration of Google Gemini prompt generation projected on screen for the room" class="gallery-img" width="800" height="500" loading="lazy">
+              <div class="media-tag-badge">
+                <span>LIVE DEMO</span>
+              </div>
+            </div>
+            <div class="gallery-card-caption">
+              <h4>Real-Time Gemini Demonstration</h4>
+              <p>Projected live prompt creation and concept generation demonstrated in real time for the room.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Workshop Video Showcase (With Original Workshop Audio) -->
+        <div class="session-video-showcase">
+          <div class="video-showcase-header">
+            <div class="video-title-group">
+              <span class="video-kicker kicker-red">WORKSHOP FOOTAGE • INCLUDES SESSION AUDIO</span>
+              <h3 class="video-heading">Live Session Highlights & Demonstration</h3>
+              <p class="video-subtext">Watch highlights from the room — featuring live prompt walkthroughs, presenter explanations, and students building at their workstations.</p>
+            </div>
+            <div class="video-meta-badges">
+              <span class="video-pill">
+                <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                1:13 Min
+              </span>
+              <span class="video-pill">
+                <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                Original Audio
+              </span>
+            </div>
+          </div>
+
+          <div class="video-player-container">
+            <video class="session-video-player" controls playsinline preload="metadata" poster="assets/images/sessions/06_huzefa_microphone_video_still.jpg">
+              <source src="assets/videos/05_workshop_highlights.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="video-footer-strip">
+            <span class="video-audio-note">🔊 Press play to watch with original workshop audio. Starts muted until you choose to play.</span>
+            <div class="video-alt-links">
+              <a href="assets/videos/08_huzefa_presenting_11s.mp4" target="_blank" class="video-sub-link" rel="noopener">Short Clip (11s Silent) ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 6: ABOUT THE HOST
+         =================================================== -->
+    <section class="section host-section" id="host">
+      <div class="container">
+        <div class="host-profile-card">
+          <div class="host-avatar-side">
+            <div class="host-image-frame">
+              <img src="assets/images/huzefa-host.jpg" alt="Huzefa Lokhandwala, workshop host, wearing official ambassador hoodie" class="host-photo" width="400" height="400" loading="lazy">
+            </div>
+            <div class="host-ambassador-badge">
+              <img src="assets/images/branding/team-gemini-sticker.png" alt="#TeamGemini sticker" class="host-ambassador-img" width="180" height="94">
+            </div>
+          </div>
+
+          <div class="host-details-side">
+            <span class="host-kicker">06 • ABOUT THE HOST</span>
+            <h2 class="host-full-name">Huzefa Lokhandwala</h2>
+            <div class="host-role-badge-row">
+              <img src="assets/images/branding/gemini-sparkle.png" alt="" class="host-sparkle-accent" width="14" height="15" aria-hidden="true">
+              <span class="host-role-title">Google Student Ambassador</span>
+            </div>
+            <p class="host-facilitator-tag">Student-Led AI Workshop Facilitator</p>
+            
+            <p class="host-description">
+              Hi, I’m Huzefa. I organize these workshops to help students from any course explore modern AI tools like Gemini through practical, hands-on activities. We focus on real things you can build for college projects, everyday tasks, and creative ideas — with zero jargon and no previous coding experience needed.
+            </p>
+
+            <!-- 3 Compact Credibility Points (Positioning Statements: STUDENT, BUILDER, COMMUNITY) -->
+            <div class="host-credibility-grid">
+              <div class="cred-point-card">
+                <span class="cred-point-kicker kicker-blue">STUDENT</span>
+                <strong class="cred-point-title">Designed by a student, for students</strong>
+                <p class="cred-point-desc">Tailored directly for campus life, university coursework, and student creative projects.</p>
+              </div>
+              <div class="cred-point-card">
+                <span class="cred-point-kicker kicker-green">BUILDER</span>
+                <strong class="cred-point-title">Hands-on experimentation</strong>
+                <p class="cred-point-desc">Direct trial, live prompts, and real outputs instead of passive presentation slides.</p>
+              </div>
+              <div class="cred-point-card">
+                <span class="cred-point-kicker kicker-yellow">COMMUNITY</span>
+                <strong class="cred-point-title">Learn → Create → Collaborate</strong>
+                <p class="cred-point-desc">Bringing students across disciplines together to explore modern AI with Google Gemini.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 7: EVENT DETAILS & LOGISTICS
+         =================================================== -->
+    <section class="section event-details-section" id="event-details">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker kicker-yellow">07 • EVENT LOGISTICS</span>
+          <h2 class="section-title">
+            Event <span class="highlight-yellow">Logistics</span>
+          </h2>
+          <p class="section-subtitle">
+            Everything you need to know to plan your attendance.
+          </p>
+        </div>
+
+        <div class="logistics-card-wrapper">
+          <div class="google-logistics-card">
+            <div class="logistics-rows">
+              <!-- Field 1: Date -->
+              <div class="logistics-row">
+                <div class="row-icon-svg-box">
+                  <svg class="row-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">WORKSHOP DATE</span>
+                  <div class="row-value">
+                    <span class="pending-tag">[TO BE ANNOUNCED]</span>
+                  </div>
+                  <span class="row-note">Final date will be announced directly across student channels</span>
+                </div>
+              </div>
+
+              <!-- Field 2: Time -->
+              <div class="logistics-row">
+                <div class="row-icon-svg-box">
+                  <svg class="row-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">SESSION TIME</span>
+                  <div class="row-value">
+                    <span class="pending-tag">[TO BE ANNOUNCED]</span>
+                  </div>
+                  <span class="row-note">Expected duration: Approximately 2 to 2.5 hours</span>
+                </div>
+              </div>
+
+              <!-- Field 3: Venue -->
+              <div class="logistics-row">
+                <div class="row-icon-svg-box">
+                  <svg class="row-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">PHYSICAL VENUE</span>
+                  <div class="row-value">
+                    <strong class="venue-name-highlight" id="logistics-venue">[TO BE ANNOUNCED]</strong>
+                  </div>
+                  <span class="row-note venue-clarify-text">
+                    Campus venue will be announced shortly
+                  </span>
+                </div>
+              </div>
+
+              <!-- Field 4: What to Bring -->
+              <div class="logistics-row">
+                <div class="row-icon-svg-box">
+                  <svg class="row-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">WHAT TO BRING</span>
+                  <div class="row-value">
+                    <span>Smartphone or Laptop + Curiosity</span>
+                  </div>
+                  <span class="row-note">A free Google account to access Gemini live</span>
+                </div>
+              </div>
+
+              <!-- Field 5: Online Option -->
+              <div class="logistics-row row-remote">
+                <div class="row-icon-svg-box">
+                  <svg class="row-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">ONLINE OPTION (GOOGLE MEET)</span>
+                  <div class="row-value">
+                    <span>Remote Broadcast Stream Available</span>
+                  </div>
+                  <span class="row-note">
+                    Offline experience recommended • Online stream provided for students unable to attend in person
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 8: FINAL CTA (YOUR NEXT AI EXPERIENCE)
+         =================================================== -->
+    <section class="section final-cta-section" id="join">
+      <div class="container">
+        <div class="google-cta-banner">
+          <div class="cta-inner text-center">
+            <span class="pill-badge pill-ambassador">YOUR NEXT AI EXPERIENCE</span>
+            
+            <h2 class="cta-headline">
+              DON'T JUST WATCH AI HAPPEN.<br>
+              <span class="google-accent-text">EXPERIENCE IT.</span>
+            </h2>
+            
+            <p class="cta-subtext">
+              Bring your curiosity. Bring an idea. Leave with something you created.
+            </p>
+
+            <div class="cta-btn-row">
+              <button class="btn btn-google-blue btn-lg open-remind-modal">
+                <span class="btn-icon">🔔</span>
+                <span>Remind Me</span>
+              </button>
+              
+              <button class="btn btn-outline-google btn-lg open-online-modal">
+                <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                <span>Join Online</span>
+              </button>
+
+              <button class="btn btn-subtle-pill btn-lg open-share-modal" id="final-share-btn">
+                <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>Share Invitation</span>
+              </button>
+            </div>
+
+            <div class="cta-foot-clarification">
+              <span>Offline experience recommended • Online option available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================
+       FOOTER
+       =================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-row">
+        <div class="footer-brand-info">
+          <div class="footer-logo-wrap">
+            <img src="assets/images/branding/google-logo.png" alt="Google" class="footer-google-img" width="76" height="25">
+          </div>
+          <div>
+            <h3 class="footer-brand-name">Google AI Workshop</h3>
+            <p class="footer-brand-role">Interactive Campus AI Workshop</p>
+          </div>
+        </div>
+
+        <div class="footer-links-list">
+          <a href="#register">Register</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#experience">Experience</a>
+          <a href="#challenge">Challenge</a>
+          <a href="#sessions">Sessions</a>
+          <a href="#host">About</a>
+          <a href="#event-details">Logistics</a>
+          <button class="footer-replay-link" id="replay-intro-btn" title="Replay opening experience">Replay Intro ↺</button>
+        </div>
+      </div>
+
+      <div class="footer-rule"></div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-disclaimer">
+          Google, Gemini, and Google Pixel are trademarks of Google LLC. This workshop is an educational student event. Registration and participant feedback are collected via the official Google product trial forms.
+        </p>
+        <p class="footer-copyright">
+          Designed with Google Gemini &amp; modern web standards.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       MODAL 1: ADD TO CALENDAR / REMIND ME MODAL
+       =================================================== -->
+  <div class="modal-overlay" id="calendar-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-calendar-title">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-calendar-close" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg class="modal-header-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </div>
+        <h3 class="modal-title" id="modal-calendar-title">Set Your Workshop Reminder</h3>
+        <p class="modal-subtitle">
+          The exact date and time will be officially announced shortly. Choose how you'd like to stay updated:
+        </p>
+      </div>
+
+      <div class="modal-content">
+        <div class="status-notice-box">
+          <span class="status-notice-pill">SCHEDULE STATUS: PENDING ANNOUNCEMENT</span>
+          <p class="status-notice-desc">
+            We will update this website the moment the date and room timings are confirmed.
+          </p>
+        </div>
+
+        <div class="reminder-options-list">
+          <!-- Option 1: WhatsApp Reminder -->
+          <div class="reminder-option-item" id="opt-whatsapp-reminder">
+            <div class="opt-icon-circle">
+              <svg class="opt-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <div class="opt-details">
+              <strong class="opt-name">Save to WhatsApp</strong>
+              <span class="opt-sub">Send the workshop invite to your WhatsApp or student group</span>
+            </div>
+            <button class="btn btn-subtle-pill btn-sm" id="btn-save-whatsapp">Save</button>
+          </div>
+
+          <!-- Option 2: Google Calendar Link -->
+          <div class="reminder-option-item" id="opt-gcal">
+            <div class="opt-icon-circle">
+              <svg class="opt-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="opt-details">
+              <strong class="opt-name">Google Calendar Link</strong>
+              <span class="opt-sub">Creates an event entry once date is active</span>
+            </div>
+            <button class="btn btn-subtle-pill btn-sm" id="btn-add-gcal">Add</button>
+          </div>
+
+          <!-- Option 3: Download .ICS -->
+          <div class="reminder-option-item" id="opt-ical">
+            <div class="opt-icon-circle">
+              <svg class="opt-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <div class="opt-details">
+              <strong class="opt-name">Download iCal (.ics)</strong>
+              <span class="opt-sub">Compatible with Apple Calendar & Outlook</span>
+            </div>
+            <button class="btn btn-subtle-pill btn-sm" id="btn-download-ics">Download</button>
+          </div>
+
+          <!-- Option 4: Bookmark URL -->
+          <div class="reminder-option-item" id="opt-bookmark">
+            <div class="opt-icon-circle">
+              <svg class="opt-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </div>
+            <div class="opt-details">
+              <strong class="opt-name">Copy Event Link</strong>
+              <span class="opt-sub">Save page URL to your notes or bookmarks</span>
+            </div>
+            <button class="btn btn-subtle-pill btn-sm" id="btn-copy-url">Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       MODAL 2: GOOGLE MEET FALLBACK MODAL
+       =================================================== -->
+  <div class="modal-overlay" id="online-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-online-title">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-online-close" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg class="modal-header-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+          </svg>
+        </div>
+        <h3 class="modal-title" id="modal-online-title">Online Google Meet Stream</h3>
+        <p class="modal-subtitle">Secondary fallback option for remote students</p>
+      </div>
+
+      <div class="modal-content">
+        <div class="experience-recommendation-box">
+          <div class="rec-header">
+            <svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <strong>Offline Experience Recommended</strong>
+          </div>
+          <p>
+            The physical in-person session includes live hands-on prompt coaching, team creation, and the interactive fest stall challenge room voting. We recommend attending in person if you can!
+          </p>
+        </div>
+
+        <div class="meet-status-box">
+          <span class="box-status-label">GOOGLE MEET STATUS</span>
+          <div class="status-indicator-line">
+            <span class="amber-indicator-dot"></span>
+            <strong>Link Activates On Workshop Day</strong>
+          </div>
+          <p class="status-subnote">
+            The Google Meet stream link will be displayed here and shared across student communities 1 hour before the session starts.
+          </p>
+        </div>
+
+        <div class="modal-actions-box">
+          <button class="btn btn-google-blue btn-full open-share-modal">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Share Stream Details on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       MODAL 3: SHARE / DIGITAL INVITATION MODAL
+       =================================================== -->
+  <div class="modal-overlay" id="share-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-share-title">
+    <div class="modal-card modal-card-wide">
+      <button class="modal-close" id="modal-share-close" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg class="modal-header-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </div>
+        <h3 class="modal-title" id="modal-share-title">Share Digital Invitation</h3>
+        <p class="modal-subtitle">
+          Invite project partners or share across student WhatsApp groups:
+        </p>
+      </div>
+
+      <div class="modal-content">
+        <div class="whatsapp-preview-card">
+          <span class="preview-card-header">PREVIEW INVITATION TEXT</span>
+          <pre class="preview-card-body" id="share-text-preview"></pre>
+        </div>
+
+        <div class="modal-share-buttons">
+          <button class="btn btn-google-blue btn-lg" id="btn-open-whatsapp">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Open WhatsApp to Share</span>
+          </button>
+          <button class="btn btn-subtle-pill btn-lg" id="btn-copy-invite">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Message Text</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
