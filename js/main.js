@@ -28,19 +28,31 @@ function initDOMContent() {
   const heroChipVenue = document.getElementById('hero-chip-venue');
 
   if (heroChipDate) {
-    heroChipDate.textContent = event.date || event.datePlaceholder;
+    heroChipDate.textContent = event.date || event.datePlaceholder || "6 October";
   }
   if (heroChipTime) {
-    heroChipTime.textContent = event.time || event.timePlaceholder;
+    heroChipTime.textContent = event.time || event.timePlaceholder || "2:10 PM IST";
   }
   if (heroChipVenue) {
-    heroChipVenue.textContent = event.venueTitle || event.venuePlaceholder || "[TO BE ANNOUNCED]";
+    heroChipVenue.textContent = event.venueTitle || event.venuePlaceholder || "Mandsaur University";
   }
 
-  // Logistics card venue
+  // Logistics card fields
+  const logisticsDate = document.getElementById('logistics-date');
+  if (logisticsDate) {
+    logisticsDate.textContent = event.date || event.datePlaceholder || "6 October";
+  }
+  const logisticsTime = document.getElementById('logistics-time');
+  if (logisticsTime) {
+    logisticsTime.textContent = event.time || event.timePlaceholder || "2:10 PM IST";
+  }
   const logisticsVenue = document.getElementById('logistics-venue');
   if (logisticsVenue) {
-    logisticsVenue.textContent = event.venueTitle || event.venuePlaceholder || "[TO BE ANNOUNCED]";
+    logisticsVenue.textContent = event.venueTitle || event.venuePlaceholder || "Mandsaur University";
+  }
+  const logisticsMeetLink = document.getElementById('logistics-meet-link');
+  if (logisticsMeetLink && event.onlineOption && event.onlineOption.meetUrl) {
+    logisticsMeetLink.href = event.onlineOption.meetUrl;
   }
 
   // Populate Share Preview text
@@ -207,18 +219,24 @@ function initCalendarAndSharing() {
   const btnAddGcal = document.getElementById('btn-add-gcal');
   if (btnAddGcal) {
     btnAddGcal.addEventListener('click', () => {
-      if (!event.isScheduled || !event.date) {
-        showToast('📅 Schedule announcement dropping soon! Link copied to clipboard.');
-        copyToClipboard(currentUrl);
-      } else {
-        const title = encodeURIComponent("Google AI Workshop - Huzefa Lokhandwala (Google Student Ambassador)");
-        const details = encodeURIComponent(
-          `${event.supportingText}\n\nConducted by Huzefa Lokhandwala (Google Student Ambassador).\n\nWebsite: ${currentUrl}`
-        );
-        const venue = encodeURIComponent(event.venueTitle || "[TO BE ANNOUNCED]");
-        const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${venue}`;
-        window.open(gcalUrl, '_blank', 'noopener,noreferrer');
-      }
+      const meetUrl = (event.onlineOption && event.onlineOption.meetUrl) || "https://meet.google.com/iya-gbna-qqd";
+      const venue = event.venueTitle || "Mandsaur University";
+      const title = encodeURIComponent("Google AI Workshop - Huzefa Lokhandwala (Google Student Ambassador)");
+      const details = encodeURIComponent(
+        `Google AI Workshop: Don't Just Learn About AI. Use It.\n\n` +
+        `Facilitated by Huzefa Lokhandwala (Google Student Ambassador).\n` +
+        `A hands-on campus session exploring Gemini, prompt design, and practical prototyping.\n\n` +
+        `📍 Venue: ${venue}\n` +
+        `📅 Date: 6 October 2026\n` +
+        `⏰ Time: 2:10 PM IST (Expected duration: ~2 to 2.5 hours)\n` +
+        `📹 Google Meet Stream: ${meetUrl}\n\n` +
+        `Website: ${currentUrl}`
+      );
+      const encodedVenue = encodeURIComponent(venue);
+      // 6 October 2026: 2:10 PM IST (14:10 IST = 08:40 UTC) to 4:40 PM IST (16:40 IST = 11:10 UTC)
+      const dates = "20261006T084000Z/20261006T111000Z";
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${encodedVenue}`;
+      window.open(gcalUrl, '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -226,11 +244,7 @@ function initCalendarAndSharing() {
   const btnDownloadIcs = document.getElementById('btn-download-ics');
   if (btnDownloadIcs) {
     btnDownloadIcs.addEventListener('click', () => {
-      if (!event.isScheduled || !event.date) {
-        showToast('ℹ️ Exact session time pending. Download will activate once date is set.');
-      } else {
-        generateIcsFile(event, currentUrl);
-      }
+      generateIcsFile(event, currentUrl);
     });
   }
 
@@ -396,9 +410,11 @@ function fallbackCopy(text) {
 }
 
 /**
- * Generate and download an .ics file
+ * Generate and download an .ics file with confirmed schedule
  */
 function generateIcsFile(event, url) {
+  const meetUrl = (event.onlineOption && event.onlineOption.meetUrl) || 'https://meet.google.com/iya-gbna-qqd';
+  const venue = event.venueTitle || 'Mandsaur University';
   const icsContent = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -406,9 +422,14 @@ function generateIcsFile(event, url) {
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
+    'UID:google-ai-workshop-20261006T141000-mandsaur@gemini',
+    'DTSTAMP:20261005T101500Z',
+    'DTSTART:20261006T084000Z',
+    'DTEND:20261006T111000Z',
     'SUMMARY:Google AI Workshop - Huzefa Lokhandwala (Google Student Ambassador)',
-    'DESCRIPTION:' + (event.supportingText || 'Hands-on Google AI workshop') + '\\n\\nWebsite: ' + url,
-    'LOCATION:' + (event.venueTitle || '[TO BE ANNOUNCED]'),
+    'DESCRIPTION:' + (event.supportingText || 'Hands-on Google AI workshop exploring Gemini, prompt design, and practical prototyping.') + '\\n\\nVenue: ' + venue + '\\nDate: 6 October 2026\\nTime: 2:10 PM IST\\nGoogle Meet Stream: ' + meetUrl + '\\nWebsite: ' + url,
+    'LOCATION:' + venue,
+    'URL:' + meetUrl,
     'STATUS:CONFIRMED',
     'END:VEVENT',
     'END:VCALENDAR'
@@ -421,7 +442,7 @@ function generateIcsFile(event, url) {
   document.body.appendChild(link);
   link.click();
   link.remove();
-  showToast('🗓️ Calendar invitation file downloaded!');
+  showToast('🗓️ Calendar invitation file downloaded (6 October • 2:10 PM IST)!');
 }
 
 /**

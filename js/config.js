@@ -17,28 +17,33 @@ export const WORKSHOP_CONFIG = {
     supportingText: "A hands-on Google AI workshop where you can explore Gemini, experiment with AI, and turn ideas into something real.",
     
     // Venue Information
-    venueTitle: "[TO BE ANNOUNCED]",
-    venuePlaceholder: "[TO BE ANNOUNCED]",
-    venueClarification: "Physical campus venue will be announced shortly",
+    venueTitle: "Mandsaur University",
+    venuePlaceholder: "Mandsaur University",
+    venueClarification: "Mandsaur University campus",
     
     // Schedule Status & Placeholders
-    isScheduled: false,
-    date: null,
-    datePlaceholder: "[TO BE ANNOUNCED]",
+    isScheduled: true,
+    date: "6 October",
+    dateDisplay: "6 October",
+    dateFull: "6 October 2026",
+    datePlaceholder: "6 October",
     
-    time: null,
-    timePlaceholder: "[TO BE ANNOUNCED]",
+    time: "2:10 PM IST",
+    timePlaceholder: "2:10 PM IST",
+    timeZone: "IST",
+    timeFull: "2:10 PM India Standard Time (IST)",
+    duration: "Approximately 2 to 2.5 hours",
     
     // Experience Priority
     experienceNote: "Offline experience recommended • Online option available",
 
-    // Online Fallback
+    // Online Option
     onlineOption: {
       isAvailable: true,
       platform: "Google Meet",
-      meetUrl: null,
+      meetUrl: "https://meet.google.com/iya-gbna-qqd",
       note: "Offline attendance is the primary workshop experience with live challenges and room voting. An online Google Meet option is provided for students unable to attend in person.",
-      statusText: "Link will activate on the morning of the workshop"
+      statusText: "Confirmed — Stream starts at 2:10 PM IST on 6 October"
     },
 
     // Practical Challenge (GSA Activity inside the broader workshop)
@@ -136,9 +141,11 @@ Hey! Huzefa Lokhandwala is hosting an interactive, hands-on Google AI workshop.
 📝 *Register & Reserve Your Seat:*
 https://producttrialsurvey.geministudentambassador.com/
 
-📍 *Venue:* [TO BE ANNOUNCED]
-📅 *Schedule:* [TO BE ANNOUNCED]
-📹 *Format:* Offline experience recommended • Online option available
+📍 *Venue:* Mandsaur University
+📅 *Date:* 6 October 2026
+⏰ *Time:* 2:10 PM IST
+📹 *Google Meet:* https://meet.google.com/iya-gbna-qqd
+💡 *Format:* Offline experience recommended • Online option available
 
 Check out full workshop details:
 `

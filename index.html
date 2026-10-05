@@ -217,7 +217,7 @@
               </svg>
               <div class="chip-details">
                 <span class="chip-label">DATE</span>
-                <span class="chip-val" id="hero-chip-date">[TO BE ANNOUNCED]</span>
+                <span class="chip-val" id="hero-chip-date">6 October</span>
               </div>
             </div>
 
@@ -228,7 +228,7 @@
               </svg>
               <div class="chip-details">
                 <span class="chip-label">TIME</span>
-                <span class="chip-val" id="hero-chip-time">[TO BE ANNOUNCED]</span>
+                <span class="chip-val" id="hero-chip-time">2:10 PM IST</span>
               </div>
             </div>
 
@@ -239,7 +239,7 @@
               </svg>
               <div class="chip-details">
                 <span class="chip-label">VENUE</span>
-                <span class="chip-val" id="hero-chip-venue">[TO BE ANNOUNCED]</span>
+                <span class="chip-val" id="hero-chip-venue">Mandsaur University</span>
               </div>
             </div>
           </div>
@@ -1081,9 +1081,9 @@
                 <div class="row-info">
                   <span class="row-label">WORKSHOP DATE</span>
                   <div class="row-value">
-                    <span class="pending-tag">[TO BE ANNOUNCED]</span>
+                    <strong class="date-val-highlight" id="logistics-date">6 October</strong>
                   </div>
-                  <span class="row-note">Final date will be announced directly across student channels</span>
+                  <span class="row-note">6 October 2026 • Confirmed campus session date</span>
                 </div>
               </div>
 
@@ -1098,7 +1098,7 @@
                 <div class="row-info">
                   <span class="row-label">SESSION TIME</span>
                   <div class="row-value">
-                    <span class="pending-tag">[TO BE ANNOUNCED]</span>
+                    <strong class="time-val-highlight" id="logistics-time">2:10 PM IST</strong>
                   </div>
                   <span class="row-note">Expected duration: Approximately 2 to 2.5 hours</span>
                 </div>
@@ -1115,10 +1115,10 @@
                 <div class="row-info">
                   <span class="row-label">PHYSICAL VENUE</span>
                   <div class="row-value">
-                    <strong class="venue-name-highlight" id="logistics-venue">[TO BE ANNOUNCED]</strong>
+                    <strong class="venue-name-highlight" id="logistics-venue">Mandsaur University</strong>
                   </div>
                   <span class="row-note venue-clarify-text">
-                    Campus venue will be announced shortly
+                    Mandsaur University campus
                   </span>
                 </div>
               </div>
@@ -1152,10 +1152,12 @@
                 <div class="row-info">
                   <span class="row-label">ONLINE OPTION (GOOGLE MEET)</span>
                   <div class="row-value">
-                    <span>Remote Broadcast Stream Available</span>
+                    <a href="https://meet.google.com/iya-gbna-qqd" target="_blank" rel="noopener noreferrer" class="meet-link-direct" id="logistics-meet-link">
+                      <span>meet.google.com/iya-gbna-qqd ↗</span>
+                    </a>
                   </div>
                   <span class="row-note">
-                    Offline experience recommended • Online stream provided for students unable to attend in person
+                    Offline experience recommended • Online stream provided via Google Meet for remote attendees
                   </span>
                 </div>
               </div>
@@ -1189,13 +1191,13 @@
                 <span>Remind Me</span>
               </button>
               
-              <button class="btn btn-outline-google btn-lg open-online-modal">
+              <a href="https://meet.google.com/iya-gbna-qqd" target="_blank" rel="noopener noreferrer" class="btn btn-outline-google btn-lg" id="final-join-online-btn">
                 <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="23 7 16 12 23 17 23 7"></polygon>
                   <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                 </svg>
                 <span>Join Online</span>
-              </button>
+              </a>
 
               <button class="btn btn-subtle-pill btn-lg open-share-modal" id="final-share-btn">
                 <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1275,15 +1277,15 @@
         </div>
         <h3 class="modal-title" id="modal-calendar-title">Set Your Workshop Reminder</h3>
         <p class="modal-subtitle">
-          The exact date and time will be officially announced shortly. Choose how you'd like to stay updated:
+          Save the confirmed date and time to your calendar so you don't miss the session:
         </p>
       </div>
 
       <div class="modal-content">
-        <div class="status-notice-box">
-          <span class="status-notice-pill">SCHEDULE STATUS: PENDING ANNOUNCEMENT</span>
+        <div class="status-notice-box status-confirmed-box">
+          <span class="status-notice-pill pill-confirmed">CONFIRMED WORKSHOP SCHEDULE</span>
           <p class="status-notice-desc">
-            We will update this website the moment the date and room timings are confirmed.
+            <strong>6 October 2026 • 2:10 PM IST</strong> at <strong>Mandsaur University</strong>
           </p>
         </div>
 
@@ -1297,7 +1299,7 @@
             </div>
             <div class="opt-details">
               <strong class="opt-name">Save to WhatsApp</strong>
-              <span class="opt-sub">Send the workshop invite to your WhatsApp or student group</span>
+              <span class="opt-sub">Send confirmed workshop details to your WhatsApp or student group</span>
             </div>
             <button class="btn btn-subtle-pill btn-sm" id="btn-save-whatsapp">Save</button>
           </div>
@@ -1314,7 +1316,7 @@
             </div>
             <div class="opt-details">
               <strong class="opt-name">Google Calendar Link</strong>
-              <span class="opt-sub">Creates an event entry once date is active</span>
+              <span class="opt-sub">Add 6 October • 2:10 PM IST to Google Calendar</span>
             </div>
             <button class="btn btn-subtle-pill btn-sm" id="btn-add-gcal">Add</button>
           </div>
@@ -1330,7 +1332,7 @@
             </div>
             <div class="opt-details">
               <strong class="opt-name">Download iCal (.ics)</strong>
-              <span class="opt-sub">Compatible with Apple Calendar & Outlook</span>
+              <span class="opt-sub">Compatible with Apple Calendar & Outlook (6 October • 2:10 PM IST)</span>
             </div>
             <button class="btn btn-subtle-pill btn-sm" id="btn-download-ics">Download</button>
           </div>
@@ -1369,7 +1371,7 @@
           </svg>
         </div>
         <h3 class="modal-title" id="modal-online-title">Online Google Meet Stream</h3>
-        <p class="modal-subtitle">Secondary fallback option for remote students</p>
+        <p class="modal-subtitle">Remote broadcast for students unable to attend in person</p>
       </div>
 
       <div class="modal-content">
@@ -1383,23 +1385,33 @@
             <strong>Offline Experience Recommended</strong>
           </div>
           <p>
-            The physical in-person session includes live hands-on prompt coaching, team creation, and the interactive fest stall challenge room voting. We recommend attending in person if you can!
+            The physical in-person session at Mandsaur University includes live hands-on prompt coaching, team creation, and the interactive fest stall challenge room voting. We recommend attending in person if you can!
           </p>
         </div>
 
         <div class="meet-status-box">
-          <span class="box-status-label">GOOGLE MEET STATUS</span>
+          <span class="box-status-label">CONFIRMED GOOGLE MEET LINK</span>
           <div class="status-indicator-line">
-            <span class="amber-indicator-dot"></span>
-            <strong>Link Activates On Workshop Day</strong>
+            <span class="green-indicator-dot"></span>
+            <strong>6 October • 2:10 PM IST</strong>
+          </div>
+          <div class="meet-link-display-row">
+            <a href="https://meet.google.com/iya-gbna-qqd" target="_blank" rel="noopener noreferrer" class="meet-url-anchor" id="modal-meet-link">https://meet.google.com/iya-gbna-qqd ↗</a>
           </div>
           <p class="status-subnote">
-            The Google Meet stream link will be displayed here and shared across student communities 1 hour before the session starts.
+            Remote broadcast stream will go live on Google Meet at 2:10 PM IST on 6 October.
           </p>
         </div>
 
         <div class="modal-actions-box">
-          <button class="btn btn-google-blue btn-full open-share-modal">
+          <a href="https://meet.google.com/iya-gbna-qqd" target="_blank" rel="noopener noreferrer" class="btn btn-google-blue btn-full" id="btn-modal-join-meet">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+            <span>Join Google Meet ↗</span>
+          </a>
+          <button class="btn btn-outline-google btn-full open-share-modal">
             <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="18" cy="5" r="3"></circle>
               <circle cx="6" cy="12" r="3"></circle>

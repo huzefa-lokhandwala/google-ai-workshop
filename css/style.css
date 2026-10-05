@@ -2670,6 +2670,37 @@ button {
   border: 1px solid rgba(249, 171, 0, 0.3);
 }
 
+.date-val-highlight,
+.time-val-highlight {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: inline-block;
+}
+
+.meet-link-direct {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--google-blue);
+  text-decoration: none;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.meet-link-direct:hover {
+  background: var(--google-blue);
+  color: #FFFFFF;
+  border-color: var(--google-blue);
+}
+
 .row-remote {
   border-color: rgba(26, 115, 232, 0.25);
   background: var(--google-blue-light);
@@ -2942,6 +2973,11 @@ button {
   margin-bottom: 18px;
 }
 
+.status-confirmed-box {
+  background: #E6F4EA;
+  border: 1px solid rgba(52, 168, 83, 0.3);
+}
+
 .status-notice-pill {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -2949,6 +2985,10 @@ button {
   color: #B06000;
   display: block;
   margin-bottom: 2px;
+}
+
+.pill-confirmed {
+  color: #137333;
 }
 
 .status-notice-desc {
@@ -3079,6 +3119,39 @@ button {
   height: 8px;
   border-radius: 50%;
   background: var(--google-yellow);
+}
+
+.green-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--google-green);
+  box-shadow: 0 0 0 3px rgba(52, 168, 83, 0.2);
+}
+
+.meet-link-display-row {
+  margin: 8px 0 10px 0;
+}
+
+.meet-url-anchor {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--google-blue);
+  word-break: break-all;
+  display: inline-block;
+  padding: 6px 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.meet-url-anchor:hover {
+  background: var(--google-blue-light);
+  border-color: var(--google-blue);
+  text-decoration: underline;
 }
 
 .status-subnote {

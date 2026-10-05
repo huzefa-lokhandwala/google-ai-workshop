@@ -115,11 +115,11 @@ All event dates, times, venue details, and external URLs can be updated in **[`j
 ```javascript
 export const WORKSHOP_CONFIG = {
   event: {
-    venueTitle: "Campus Auditorium / Room 101",
-    date: "October 15, 2026",
-    time: "2:00 PM – 4:30 PM",
+    venueTitle: "Mandsaur University",
+    date: "6 October",
+    time: "2:10 PM IST",
     onlineOption: {
-      meetUrl: "https://meet.google.com/xyz-abcd-efg"
+      meetUrl: "https://meet.google.com/iya-gbna-qqd"
     }
   },
   registration: {
