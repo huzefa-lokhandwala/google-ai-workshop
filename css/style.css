@@ -1379,6 +1379,547 @@ button {
 }
 
 /* ==========================================================================
+   SECTION: GOOGLE MEET ATTENDANCE (MANDATORY VERIFICATION)
+   ========================================================================== */
+.attendance-section {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--card-border);
+  position: relative;
+}
+
+.meet-attendance-card {
+  background: #FFFFFF;
+  border: 2px solid #1A73E8;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 24px rgba(26, 115, 232, 0.12), 0 1px 3px rgba(60, 64, 67, 0.08);
+  position: relative;
+  overflow: hidden;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* 4-Color Google Brand Accent Bar at Top of Card */
+.meet-card-accent-bar {
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #4285F4 0%, #EA4335 33%, #FBBC04 66%, #34A853 100%);
+}
+
+.meet-card-inner {
+  padding: 36px 32px;
+}
+
+@media (max-width: 640px) {
+  .meet-card-inner {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .meet-card-inner {
+    padding: 20px 14px;
+  }
+}
+
+.meet-card-header {
+  margin-bottom: 28px;
+}
+
+.meet-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.meet-pill-mandatory {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #E6F4EA;
+  color: #137333;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(52, 168, 83, 0.4);
+}
+
+.live-dot-green {
+  width: 8px;
+  height: 8px;
+  background: #34A853;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.25);
+  animation: liveDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.meet-pill-confirmed {
+  display: inline-flex;
+  align-items: center;
+  background: var(--google-blue-light);
+  color: var(--google-blue);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+}
+
+.meet-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.meet-lead-desc {
+  font-size: clamp(14.5px, 1.5vw, 16.5px);
+  color: var(--text-body);
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Two-Column Interactive Action Grid */
+.meet-action-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 860px) {
+  .meet-action-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+}
+
+.meet-primary-action-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meet-cta-wrapper {
+  background: #F8F9FA;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.btn-xl {
+  font-size: 16.5px;
+  padding: 14px 28px;
+  min-height: 52px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-meet-svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.btn-arrow {
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.btn-xl:hover .btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+.meet-direct-link-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 9px 14px;
+  flex-wrap: wrap;
+}
+
+.direct-link-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.direct-link-anchor {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--google-blue);
+  text-decoration: underline;
+  flex: 1;
+  min-width: 0;
+  word-break: break-all;
+}
+
+.direct-link-anchor:hover {
+  color: var(--google-blue-hover);
+}
+
+.btn-copy-meet {
+  min-height: 34px;
+  padding: 5px 12px;
+}
+
+@media (max-width: 440px) {
+  .meet-direct-link-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .btn-copy-meet {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+  }
+}
+
+/* Key Requirement Callout (Beside / Below Button) */
+.meet-key-requirement-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #E8F0FE;
+  border: 1px solid #1A73E8;
+  border-left: 4px solid #1A73E8;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.req-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #1A73E8;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.req-icon-circle svg {
+  width: 14px;
+  height: 14px;
+}
+
+.req-text {
+  font-size: 13.5px;
+  color: #174EA6;
+  line-height: 1.5;
+}
+
+.req-text strong {
+  font-weight: 700;
+}
+
+/* Secondary Reminder Card */
+.meet-secondary-reminder-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.meet-session-reminder-card {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-subtle);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reminder-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.reminder-card-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.reminder-card-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--google-blue);
+  background: var(--google-blue-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+}
+
+.reminder-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reminder-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.reminder-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--google-blue);
+}
+
+.reminder-icon-box svg {
+  width: 19px;
+  height: 19px;
+}
+
+.reminder-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.reminder-item-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.reminder-item-val {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.reminder-card-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--card-border);
+}
+
+.reminder-duration {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+  font-style: italic;
+}
+
+/* 5-Step Order & Verification Notice Box */
+.meet-workflow-box {
+  background: #F8F9FA;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .meet-workflow-box {
+    padding: 18px 14px;
+  }
+}
+
+.workflow-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E8EAED;
+}
+
+.workflow-kicker {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.workflow-sub {
+  font-size: 12px;
+  color: var(--google-blue);
+  font-weight: 600;
+}
+
+.meet-steps-timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+@media (min-width: 900px) {
+  .meet-steps-timeline {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+}
+
+.timeline-step {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+@media (min-width: 900px) {
+  .timeline-step {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.timeline-step.step-highlighted {
+  border-color: var(--google-blue);
+  background: rgba(232, 240, 254, 0.45);
+  box-shadow: 0 2px 10px rgba(26, 115, 232, 0.12);
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--card-border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timeline-step.step-highlighted .step-num {
+  background: var(--google-blue);
+  color: #FFFFFF;
+  border-color: var(--google-blue);
+}
+
+.step-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.step-text strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.step-text p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.verification-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid #DADCE0;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.disc-icon-box {
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.disc-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+.disc-text {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.disc-text strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
    SECTION: ATTENDEE BENEFITS ("WHAT YOU'LL GET")
    ========================================================================== */
 .benefits-section {
@@ -3246,6 +3787,23 @@ button {
 /* ==========================================================================
    MOBILE-SPECIFIC REFINEMENTS
    ========================================================================== */
+@media (max-width: 768px) {
+  .meet-action-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .exp-utility-grid,
+  .exp-journey-grid,
+  .exp-takeaways-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mockup-caption-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 640px) {
   .site-header {
     background: rgba(255, 255, 255, 0.96);
@@ -3295,17 +3853,61 @@ button {
   }
 
   .header-actions {
-    gap: 0;
+    gap: 8px;
     flex-shrink: 0;
   }
 
+  #header-meet-btn {
+    padding: 7px 12px;
+    font-size: 12.5px;
+    min-height: 40px;
+  }
+
+  .mobile-toggle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Universal Touch Targets for Mobile Interaction (>= 44px) */
+  .btn {
+    min-height: 46px;
+  }
+
+  .btn-sm {
+    min-height: 40px;
+  }
+
+  .btn-copy-chip {
+    min-height: 40px;
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  .mobile-nav-link {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 10px 4px;
+    font-size: 16px;
+  }
+
+  .modal-close {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    top: 12px;
+    right: 12px;
+  }
+
   .hero-section {
-    padding-top: 40px;
-    padding-bottom: 56px;
+    padding-top: 36px;
+    padding-bottom: 50px;
   }
 
   .hero-title {
-    font-size: clamp(28px, 8.5vw, 40px);
+    font-size: clamp(26px, 8.5vw, 38px);
     line-height: 1.15;
     margin-bottom: 16px;
   }
@@ -3322,11 +3924,46 @@ button {
   }
 
   .metadata-chip {
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
 
-  .pipeline-step {
-    min-width: 110px;
+  /* Challenge Pipeline in Section 5 */
+  .flow-pipeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .flow-pill {
+    min-width: 0;
+    width: 100%;
+    padding: 10px 8px;
+  }
+
+  .flow-arrow {
+    display: none;
+  }
+
+  /* Organizer Reference Card Header Stack */
+  .organizer-reference-card {
+    padding: 18px 14px;
+    margin-bottom: 24px;
+  }
+
+  .org-ref-title-group {
+    min-width: 0;
+  }
+
+  .org-ref-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-copy-all {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
   }
 }
 
@@ -3337,23 +3974,23 @@ button {
   }
 
   .section {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
   .section-header {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .hero-title {
-    font-size: clamp(26px, 7.8vw, 36px);
+    font-size: clamp(24px, 7.8vw, 34px);
     overflow-wrap: break-word;
     word-break: break-word;
     line-height: 1.15;
   }
 
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
   .hero-cta-group {
@@ -3386,10 +4023,21 @@ button {
     width: 100%;
   }
 
+  .modal-share-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .modal-share-buttons .btn {
+    width: 100%;
+  }
+
   .modal-card {
-    padding: 24px 16px;
+    padding: 22px 16px;
     max-height: 90vh;
     overflow-y: auto;
+    width: calc(100% - 20px);
   }
 
   .step-card {
@@ -3398,11 +4046,136 @@ button {
   }
 
   .fomo-card {
-    padding: 24px 16px;
+    padding: 22px 16px;
   }
 
   .host-profile-card {
-    padding: 24px 16px;
+    padding: 22px 16px;
+  }
+
+  /* Same Email Callout */
+  .same-email-reminder-banner {
+    padding: 16px 14px;
+    gap: 10px;
+    border-left-width: 4px;
+  }
+
+  .reminder-banner-icon-col {
+    display: none;
+  }
+
+  /* Organizer Reference Rows: Stack cleanly without horizontal overflow */
+  .org-ref-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .org-ref-val-side {
+    width: 100%;
+  }
+
+  .org-ref-val-side .org-ref-value {
+    display: block;
+    word-break: break-all;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .org-ref-btn-side {
+    width: 100%;
+  }
+
+  .org-ref-btn-side .btn-copy-chip {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  /* Attendance Section Direct URL Bar on Mobile */
+  .meet-direct-link-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .meet-direct-link-bar .btn-copy-meet {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .direct-link-anchor {
+    font-size: 13px;
+    word-break: break-all;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .meet-card-inner {
+    padding: 18px 12px;
+  }
+
+  .meet-cta-wrapper {
+    padding: 16px 12px;
+  }
+
+  .meet-session-reminder-card {
+    padding: 16px 12px;
+  }
+
+  .btn-xl {
+    font-size: 15px;
+    padding: 12px 18px;
+    min-height: 48px;
+  }
+
+  #header-meet-btn span {
+    display: none;
+  }
+
+  #header-meet-btn {
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+  }
+
+  .brand-sub-badge {
+    display: none;
+  }
+
+  .flow-pipeline {
+    grid-template-columns: 1fr;
+  }
+
+  .organizer-reference-card {
+    padding: 14px 10px;
+  }
+
+  .reg-card {
+    padding: 20px 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 23px;
+  }
+
+  .meet-section-title {
+    font-size: 21px;
+  }
+
+  .section-title {
+    font-size: 22px;
   }
 }
 
